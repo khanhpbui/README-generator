@@ -1,8 +1,6 @@
 const inquirer = require('inquirer');
-//const fs = require(fs);
-const readme = `
+const fs = require('fs');
 
-`
 
 inquirer
     .prompt([
@@ -30,7 +28,7 @@ inquirer
             type: 'checkbox',
             message: 'Please choose a license.',
             name: 'license',
-            choices: ['MIT', 'GPLv3', 'Apache_2.0','Boost_1.0' ],
+            choices: ['MIT', 'GPLv3', 'Apache_2.0', 'Boost_1.0'],
         },
         {
             type: 'input',
@@ -53,6 +51,56 @@ inquirer
             name: 'email',
         },
     ])
-    .then((response) => {console.log('response', response)})
+    .then((response) => {
+        console.log('response', response);
+        const readme = getReadMe(response);
+        fs.writeFile('README.md', readme, err => err ? console.log(err) : console.log('Your README.md has been created'))
+    })
 
-    // function getReadme(title, description, installation, usage, license, contribution, test, github, email)
+function getReadMe({ title, description, installation, usage, license, contribution, test, github, email }) {
+    const readme =
+        `# ${title} ![Badge](https://img.shields.io/badge/License-${license[0]}-brightgreen?style=for-the-badge&logo=appveyor)
+
+## Description
+
+    ${description}
+    
+## Table of Contents
+    
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [License](#license)
+    - [Contribution](#contribution)
+    - [Tests](#tests)
+    - [Questions](#questions)
+    
+## Installation
+    
+    ${installation}
+    
+## Usage
+    
+    ${usage}
+    
+    
+## License
+    
+    This application is covered under ${license[0]} license.
+    
+## Contribution
+    
+    ${contribution}
+    
+## Tests
+    
+    ${test}
+    
+## Questions
+    
+    If there are any questions or concerns, please contact me at:
+    GitHub: https://github.com/${github}
+    Email: [${email}](mailto:${email})
+    `;
+    return readme;
+}
+
