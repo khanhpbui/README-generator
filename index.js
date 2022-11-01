@@ -63,43 +63,44 @@ function getReadMe({ title, description, installation, usage, license, contribut
 
 ## Description
 
-    ${description}
+${description}
     
 ## Table of Contents
     
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contribution](#contribution)
-    - [Tests](#tests)
-    - [Questions](#questions)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribution](#contribution)
+- [Tests](#tests)
+- [Questions](#questions)
     
 ## Installation
     
-    ${installation}
+${installation}
     
 ## Usage
     
-    ${usage}
+${usage}
     
     
 ## License
     
-    This application is covered under ${license[0]} license.
+This application is covered under ${license[0]} license.
     
 ## Contribution
     
-    ${contribution}
+${contribution}
     
 ## Tests
     
-    ${test}
+${test}
     
 ## Questions
     
-    If there are any questions or concerns, please contact me at:
-    GitHub: https://github.com/${github}
-    Email: [${email}](mailto:${email})
+If there are any questions or concerns, please contact me at:<br>
+GitHub: https://github.com/${github}<br>
+Email: [${email}](mailto:${email})
     `;
     return readme;
 }
