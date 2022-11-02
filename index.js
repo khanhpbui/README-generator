@@ -25,7 +25,7 @@ inquirer
             name: 'usage',
         },
         {
-            type: 'checkbox',
+            type: 'list',
             message: 'Please choose a license.',
             name: 'license',
             choices: ['MIT', 'GPLv3', 'Apache_2.0', 'Boost_1.0'],
@@ -54,12 +54,13 @@ inquirer
     .then((response) => {
         console.log('response', response);
         const readme = getReadMe(response);
-        fs.writeFile('README.md', readme, err => err ? console.log(err) : console.log('Your README.md has been created'))
+        fs.writeFile('./dist/README.md', readme, err => err ? console.log(err) : console.log('Your README.md has been created'))
     })
 
 function getReadMe({ title, description, installation, usage, license, contribution, test, github, email }) {
     const readme =
-        `# ${title} ![Badge](https://img.shields.io/badge/License-${license[0]}-brightgreen?style=for-the-badge&logo=appveyor)
+        `# ${title} 
+![Badge](https://img.shields.io/badge/License-${license}-brightgreen?style=for-the-badge&logo=appveyor)
 
 ## Description
 
@@ -86,7 +87,7 @@ ${usage}
     
 ## License
     
-This application is covered under ${license[0]} license.
+This application is covered under ${license} license.
     
 ## Contribution
     
