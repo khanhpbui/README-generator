@@ -3,9 +3,9 @@
 
 ## Description
 
-This application will populate a README.md file for the user based on the responses that are received from the prompted questions in the terminal.<br>
+This application will populate a README.md file for the user based on the responses that are received from the prompted questions in the terminal.<br><br>
 ![README Generator](./scr/readme-generator.gif)
-<br>
+<br><br>
 Click [HERE](https://drive.google.com/file/d/1ebZhuC1POQxNfMQMZu-Ts_Mjns7J2q_N/view) to view a full video demonstrating a walkthrough of how to run the application.
     
 ## Table of Contents
